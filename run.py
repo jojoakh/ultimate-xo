@@ -1,5 +1,25 @@
+import os
+
+
 # Create a 4x4 tic tac toe board
 board = [[" " for _ in range(4)] for _ in range(4)]
+title = r"""
+
+Hello!
+
+////////////////////////////////////////////////////////////////////////////
+//  __        __   _                            _          _____ _        //
+//  \ \      / /__| | ___ ___  _ __ ___   ___  | |_ ___   |_   _(_) ___   //
+//   \ \ /\ / / _ \ |/ __/ _ \| '_ ` _ \ / _ \ | __/ _ \    | | | |/ __|  //
+//    \ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) |   | | | | (__   //
+//   __\_/\_/ \___|_|\___\___/|_| |_| |_|\___|  \__\___/    |_| |_|\___|  //
+//  |_   _|_ _  ___  |_   _|__   ___   / ___| __ _ _ __ ___   ___         //
+//    | |/ _` |/ __|   | |/ _ \ / _ \ | |  _ / _` | '_ ` _ \ / _ \        //
+//    | | (_| | (__    | | (_) |  __/ | |_| | (_| | | | | | |  __/        //
+//    |_|\__,_|\___|   |_|\___/ \___|  \____|\__,_|_| |_| |_|\___|        //
+////////////////////////////////////////////////////////////////////////////
+        
+"""
 
 # Function to display the board
 def display_board(board):
@@ -20,5 +40,12 @@ def display_rules():
     print("6. The game ends when a player achieves a winning condition or the board is full (draw).")
     print("8. Have fun and enjoy the game!")
 
+def welcome_message():
+    print(title)
+    print("Please select an option to begin:\n")
+    print("1. Rules\n")
+    
+
 display_board(board)
 display_rules()
+welcome_message()
