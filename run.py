@@ -1,3 +1,11 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+# Create a 4x4 tic tac toe board
+board = [[" " for _ in range(4)] for _ in range(4)]
+
+# Function to display the board
+def display_board(board):
+    for row in range(4):
+        print(" | ".join(board[row]))
+        if row < 4:
+            print("-" * 13)
+
+display_board(board)
