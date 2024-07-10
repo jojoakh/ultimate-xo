@@ -69,6 +69,18 @@ def check_win(board, mark):
 def check_draw(board):
     return all(all(cell != " " for cell in row) for row in board)
 
+# Function for computer's move
+def computer_move(board):
+    empty_cells = [(i, j) for i in range(4) for j in range(4) if board[i][j] == " "]
+    if empty_cells:
+        row, col = random.choice(empty_cells)
+        board[row][col] = "O"
+
+# Function to convert a cell number to row and column indices
+def cell_to_indices(cell_num):
+    row = (cell_num - 1) // 4
+    col = (cell_num - 1) % 4
+    return row, col
 
 # Main function to control the flow of the game
 def main():
