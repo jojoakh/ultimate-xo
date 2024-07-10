@@ -1,7 +1,6 @@
 import os
 import random
 
-
 # Define the initial board state
 board = [[" " for _ in range(4)] for _ in range(4)]
 
@@ -22,16 +21,23 @@ Hello!
 ////////////////////////////////////////////////////////////////////////////
 """
 
-# Function to display the board
+# Function to display the board with numbers
 def display_board(board):
+    cell_num = 1
     for row in range(4):
-        print(" | ".join(board[row]))
+        for col in range(4):
+            if board[row][col] == " ":
+                print(f"{cell_num:2}", end=" | ")
+            else:
+                print(f"{board[row][col]:2}", end=" | ")
+            cell_num += 1
+        print()
         if row < 3:
-            print("-" * 13)
+            print("-" * 19)
 
 # Function to display the rules of the game
 def display_rules():
-    print("Tic Tac Toe Rules:")
+    print("\nTic Tac Toe Rules:\n")
     print("1. The game is played on a 4x4 grid.")
     print("2. Players take turns placing their marks ('X' or 'O') in empty cells.")
     print("3. The objective is to be the first player to get four of your marks in a row,")
@@ -39,7 +45,7 @@ def display_rules():
     print("4. Players cannot overwrite their opponent's mark.")
     print("5. The first player usually starts with 'X'.")
     print("6. The game ends when a player achieves a winning condition or the board is full (draw).")
-    print("7. Have fun and enjoy the game!")
+    print("7. Have fun and enjoy the game!\n")
 
 # Function to display the welcome message
 def welcome_message():
@@ -47,7 +53,22 @@ def welcome_message():
     print("Please select an option to proceed:\n")
     print("1. Rules\n")
     print("2. Start Game\n")
-    print("3. Exit")
+    print("3. Exit\n")
+
+# Function to check for a win
+def check_win(board, mark):
+    # Check rows, columns, and diagonals for a win
+    for i in range(4):
+        if all(board[i][j] == mark for j in range(4)) or all(board[j][i] == mark for j in range(4)):
+            return True
+    if all(board[i][i] == mark for i in range(4)) or all(board[i][3-i] == mark for i in range(4)):
+        return True
+    return False
+
+# Function to check for a draw
+def check_draw(board):
+    return all(all(cell != " " for cell in row) for row in board)
+
 
 # Main function to control the flow of the game
 def main():
@@ -57,13 +78,9 @@ def main():
         if choice == "1":
             display_rules()
         elif choice == "2":
-            display_board(board)
-            break  # Start game here
-        elif choice == "3":
-            print("Thank you for playing! Goodbye!")
-            break
-        else:
-            print("Invalid choice. Please select 1, 2, or 3.")
+            board = [[" " for _ in range(4)] for _ in range(4)]  # Reset the board
+            
+           
 
-# call the main function to start the game
+# Call the main function to start the game
 main()
