@@ -92,7 +92,63 @@ def main():
         elif choice == "2":
             board = [[" " for _ in range(4)] for _ in range(4)]  # Reset the board
             
-           
+            print("\nSelect game mode:")
+            print("1. Two Players")
+            print("2. Play with Computer")
+            game_mode = input("\nEnter your choice: ").strip()
+            
+            if game_mode == "1":
+                player1 = input("\nEnter Player 1 (X) username: ").strip()
+                player2 = input("\nEnter Player 2 (O) username: ").strip()
+            elif game_mode == "2":
+                player1 = input("\nEnter your username: ").strip()
+                player2 = "Computer"
+
+            current_player = "X"
+            while True:
+                os.system('clear')  # Clear the console
+                display_board(board)
+                if (game_mode == "1") or (game_mode == "2" and current_player == "X"):
+                    if current_player == "X":
+                        player_name = player1
+                    else:
+                        player_name = player2
+                    
+                    cell_num = int(input(f"\n{player_name} ({current_player}), enter the cell number (1-16): ").strip())
+                    row, col = cell_to_indices(cell_num)
+                    if board[row][col] == " ":
+                        board[row][col] = current_player
+                        if check_win(board, current_player):
+                            os.system('clear')  # Clear the console
+                            display_board(board)
+                            print(f"\n{player_name} ({current_player}) wins!\n")
+                            break
+                        elif check_draw(board):
+                            os.system('clear')  # Clear the console
+                            display_board(board)
+                            print("\nIt's a draw!\n")
+                            break
+                        current_player = "O" if current_player == "X" else "X"
+                    else:
+                        print("\nCell already occupied. Try again.")
+                else:
+                    computer_move(board)
+                    if check_win(board, "O"):
+                        os.system('clear')  # Clear the console
+                        display_board(board)
+                        print("\nComputer (O) wins!\n")
+                        break
+                    elif check_draw(board):
+                        os.system('clear')  # Clear the console
+                        display_board(board)
+                        print("\nIt's a draw!\n")
+                        break
+                    current_player = "X"
+        elif choice == "3":
+            print("\nThank you for playing! Goodbye!\n")
+            break
+        else:
+            print("\nInvalid choice. Please select 1, 2, or 3.\n")
 
 # Call the main function to start the game
 main()
