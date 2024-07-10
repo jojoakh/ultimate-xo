@@ -23,17 +23,15 @@ Hello!
 
 # Function to display the board with numbers
 def display_board(board):
-    cell_num = 1
-    for row in range(4):
-        for col in range(4):
-            if board[row][col] == " ":
-                print(f"{cell_num:2}", end=" | ")
-            else:
-                print(f"{board[row][col]:2}", end=" | ")
-            cell_num += 1
-        print()
-        if row < 3:
-            print("-" * 21)
+    print("_____ _____ _____ _____")
+    print("  %c  |  %c  |  %c  |  %c " % (board[0][0], board[0][1], board[0][2], board[0][3]))
+    print("_____|_____|_____|_____")
+    print("  %c  |  %c  |  %c  |  %c " % (board[1][0], board[1][1], board[1][2], board[1][3]))
+    print("_____|_____|_____|_____")
+    print("  %c  |  %c  |  %c  |  %c " % (board[2][0], board[2][1], board[2][2], board[2][3]))
+    print("_____|_____|_____|_____")
+    print("  %c  |  %c  |  %c  |  %c " % (board[3][0], board[3][1], board[3][2], board[3][3]))
+    print("_____|_____|_____|_____")
 
 # Function to display the rules of the game
 def display_rules():
