@@ -1,10 +1,12 @@
 import os
+import random
 
 
-# Create a 4x4 tic tac toe board
+# Define the initial board state
 board = [[" " for _ in range(4)] for _ in range(4)]
-title = r"""
 
+# Define the title art
+title = r"""
 Hello!
 
 ////////////////////////////////////////////////////////////////////////////
@@ -18,17 +20,16 @@ Hello!
 //    | | (_| | (__    | | (_) |  __/ | |_| | (_| | | | | | |  __/        //
 //    |_|\__,_|\___|   |_|\___/ \___|  \____|\__,_|_| |_| |_|\___|        //
 ////////////////////////////////////////////////////////////////////////////
-        
 """
 
 # Function to display the board
 def display_board(board):
     for row in range(4):
         print(" | ".join(board[row]))
-        if row < 4:
+        if row < 3:
             print("-" * 13)
 
-# function to display the rules of the game
+# Function to display the rules of the game
 def display_rules():
     print("Tic Tac Toe Rules:")
     print("1. The game is played on a 4x4 grid.")
@@ -38,14 +39,31 @@ def display_rules():
     print("4. Players cannot overwrite their opponent's mark.")
     print("5. The first player usually starts with 'X'.")
     print("6. The game ends when a player achieves a winning condition or the board is full (draw).")
-    print("8. Have fun and enjoy the game!")
+    print("7. Have fun and enjoy the game!")
 
+# Function to display the welcome message
 def welcome_message():
     print(title)
-    print("Please select an option to begin:\n")
+    print("Please select an option to proceed:\n")
     print("1. Rules\n")
-    
+    print("2. Start Game\n")
+    print("3. Exit")
 
-display_board(board)
-display_rules()
-welcome_message()
+# Main function to control the flow of the game
+def main():
+    while True:
+        welcome_message()
+        choice = input("Enter your choice: ").strip()
+        if choice == "1":
+            display_rules()
+        elif choice == "2":
+            display_board(board)
+            break  # Start game here
+        elif choice == "3":
+            print("Thank you for playing! Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please select 1, 2, or 3.")
+
+# call the main function to start the game
+main()
