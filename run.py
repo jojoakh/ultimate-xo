@@ -84,10 +84,9 @@ def replay():
     while True:
         choice = input("\nDo you want to play again? (yes/no): ").strip().lower()
         if choice == "yes":
-            main()
+            return True
         elif choice == "no":
-            print("\nThank you for playing! Goodbye!\n")
-            exit()
+            return False
         else:
             print("\nInvalid choice. Please enter 'yes' or 'no'.")
 
@@ -98,6 +97,7 @@ def main():
         choice = input("Enter your choice: ").strip()
         if choice == "1":
             display_rules()
+            continue  # Go back to the main menu after displaying rules
         elif choice == "2":
             while True:
                 board = [[" " for _ in range(4)] for _ in range(4)]  # Reset the board
@@ -113,6 +113,9 @@ def main():
                 elif game_mode == "2":
                     player1 = input("\nEnter your username: ").strip()
                     player2 = "Computer"
+                else:
+                    print("\nInvalid choice. Please select 1 or 2.")
+                    continue
 
                 current_player = "X"
                 while True:
@@ -124,14 +127,23 @@ def main():
                         else:
                             player_name = player2
                         
-                        cell_num = int(input(f"\n{player_name} ({current_player}), enter the cell number (1-16): ").strip())
+                        cell_num = input(f"\n{player_name} ({current_player}), It's your turn, enter number (1-16): ").strip()
+                        if not cell_num.isdigit():
+                            print("\nInvalid input. Please enter a valid number between 1 and 16.")
+                            continue
+                        
+                        cell_num = int(cell_num)
+                        if cell_num < 1 or cell_num > 16:
+                            print("\nInvalid cell number. Please enter a number between 1 and 16.")
+                            continue
+                        
                         row, col = cell_to_indices(cell_num)
                         if board[row][col] == " ":
                             board[row][col] = current_player
                             if check_win(board, current_player):
                                 os.system('clear')  # Clear the console
                                 display_board(board)
-                                print(f"\n{player_name} ({current_player}) You wins!\n")
+                                print(f"\n{player_name} ({current_player}) wins!\n")
                                 break
                             elif check_draw(board):
                                 os.system('clear')  # Clear the console
@@ -156,7 +168,8 @@ def main():
                         current_player = "X"
                 
                 if not replay():
-                    break
+                    print("\nThank you for playing! Goodbye!\n")
+                    return
         elif choice == "3":
             print("\nThank you for playing! Goodbye!\n")
             break
