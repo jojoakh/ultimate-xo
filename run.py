@@ -84,17 +84,17 @@ def replay():
     while True:
         choice = input("\nDo you want to play again? (yes/no): ").strip().lower()
         if choice == "yes":
-            return True
+            main()
         elif choice == "no":
             print("\nThank you for playing! Goodbye!\n")
-            return False
+            exit()
         else:
             print("\nInvalid choice. Please enter 'yes' or 'no'.")
 
 # Main function to control the flow of the game
 def main():
+    welcome_message()
     while True:
-        welcome_message()
         choice = input("Enter your choice: ").strip()
         if choice == "1":
             display_rules()
@@ -131,7 +131,7 @@ def main():
                             if check_win(board, current_player):
                                 os.system('clear')  # Clear the console
                                 display_board(board)
-                                print(f"\n{player_name} ({current_player}) wins!\n")
+                                print(f"\n{player_name} ({current_player}) You wins!\n")
                                 break
                             elif check_draw(board):
                                 os.system('clear')  # Clear the console
