@@ -21,6 +21,7 @@ Hello!
 ////////////////////////////////////////////////////////////////////////////
 """
 
+
 # Function to display the board with numbers
 def display_board(board):
     print("_____ _____ _____ _____")
@@ -29,17 +30,19 @@ def display_board(board):
         print("_____|_____|_____|_____")
     print()
 
+
 # Function to display the rules of the game
 def display_rules():
     print("\nTic Tac Toe Rules:\n")
     print("1. The game is played on a 4x4 grid.")
-    print("2. Players take turns placing their marks ('X' or 'O') in empty cells.")
-    print("3. The objective is to be the first player to get four of your marks in a row,")
+    print("2. Players take turns placing their marks in empty cells.")
+    print("3. The objective is to be the first to get four marks in a row,")
     print("   horizontally, vertically, or diagonally on a 4x4 grid.")
     print("4. Players cannot overwrite their opponent's mark.")
     print("5. The first player usually starts with 'X'.")
-    print("6. The game ends when a player achieves a winning condition or the board is full (draw).")
+    print("6. The game ends when a player wins or the board is full (draw).")
     print("7. Have fun and enjoy the game!\n")
+
 
 # Function to display the welcome message
 def welcome_message():
@@ -48,6 +51,7 @@ def welcome_message():
     print("1. Rules\n")
     print("2. Start Game\n")
     print("3. Exit\n")
+
 
 # Function to check for a win
 def check_win(board, mark):
@@ -58,9 +62,11 @@ def check_win(board, mark):
         return True
     return False
 
+
 # Function to check for a draw
 def check_draw(board):
     return all(all(cell != " " for cell in row) for row in board)
+
 
 # Function for computer's move
 def computer_move(board):
@@ -69,22 +75,25 @@ def computer_move(board):
         row, col = random.choice(empty_cells)
         board[row][col] = "O"
 
+
 # Function to convert a cell number to row and column indices
 def cell_to_indices(cell_num):
     row = (cell_num - 1) // 4
     col = (cell_num - 1) % 4
     return row, col
 
+
 # Function to replay the game
 def replay():
     while True:
-        choice = input("\nDo you want to play again? (yes/no): ").strip().lower()
-        if choice == "yes":
+        choice = input("\nDo you want to play again? (y/n): ").strip().lower()
+        if choice == "y":
             return True
-        elif choice == "no":
+        elif choice == "n":
             return False
         else:
-            print("\nInvalid choice. Please enter 'yes' or 'no'.")
+            print("\nInvalid choice. Please enter 'y' or 'n'.")
+
 
 # Main function to control the flow of the game
 def main():
@@ -96,7 +105,7 @@ def main():
             continue  # Go back to the main menu after displaying rules
         elif choice == "2":
             while True:
-                board = [[" " for _ in range(4)] for _ in range(4)]  # Reset the board
+                board = [[" " for _ in range(4)] for _ in range(4)] 
                 
                 print("\nSelect game mode:")
                 print("1. Two Players")
@@ -167,7 +176,6 @@ def main():
                             print("\nIt's a draw!\n")
                             break
                         current_player = "X"
-                
                 if not replay():
                     print("\nThank you for playing! Goodbye!\n")
                     return
@@ -176,6 +184,7 @@ def main():
             break
         else:
             print("\nInvalid choice. Please select 1, 2, or 3.\n")
+
 
 # Call the main function to start the game
 main()
