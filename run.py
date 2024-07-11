@@ -24,14 +24,10 @@ Hello!
 # Function to display the board with numbers
 def display_board(board):
     print("_____ _____ _____ _____")
-    print("  %c  |  %c  |  %c  |  %c " % (board[0][0], board[0][1], board[0][2], board[0][3]))
-    print("_____|_____|_____|_____")
-    print("  %c  |  %c  |  %c  |  %c " % (board[1][0], board[1][1], board[1][2], board[1][3]))
-    print("_____|_____|_____|_____")
-    print("  %c  |  %c  |  %c  |  %c " % (board[2][0], board[2][1], board[2][2], board[2][3]))
-    print("_____|_____|_____|_____")
-    print("  %c  |  %c  |  %c  |  %c " % (board[3][0], board[3][1], board[3][2], board[3][3]))
-    print("_____|_____|_____|_____")
+    for row in board:
+        print(f"  {row[0]}  |  {row[1]}  |  {row[2]}  |  {row[3]} ")
+        print("_____|_____|_____|_____")
+    print()
 
 # Function to display the rules of the game
 def display_rules():
@@ -108,8 +104,8 @@ def main():
                 game_mode = input("\nEnter your choice: ").strip()
                 
                 if game_mode == "1":
-                    player1 = input("\nEnter Player 1 (X) username: ").strip()
-                    player2 = input("\nEnter Player 2 (O) username: ").strip()
+                    player1 = input("\nEnter Player 1  username: ").strip()
+                    player2 = input("\nEnter Player 2  username: ").strip()
                 elif game_mode == "2":
                     player1 = input("\nEnter your username: ").strip()
                     player2 = "Computer"
@@ -126,33 +122,38 @@ def main():
                             player_name = player1
                         else:
                             player_name = player2
-                        
-                        cell_num = input(f"\n{player_name} ({current_player}), It's your turn, enter number (1-16): ").strip()
-                        if not cell_num.isdigit():
-                            print("\nInvalid input. Please enter a valid number between 1 and 16.")
-                            continue
-                        
-                        cell_num = int(cell_num)
-                        if cell_num < 1 or cell_num > 16:
-                            print("\nInvalid cell number. Please enter a number between 1 and 16.")
-                            continue
-                        
-                        row, col = cell_to_indices(cell_num)
-                        if board[row][col] == " ":
-                            board[row][col] = current_player
-                            if check_win(board, current_player):
-                                os.system('clear')  # Clear the console
-                                display_board(board)
-                                print(f"\n{player_name} ({current_player}) wins!\n")
-                                break
-                            elif check_draw(board):
-                                os.system('clear')  # Clear the console
-                                display_board(board)
-                                print("\nIt's a draw!\n")
-                                break
-                            current_player = "O" if current_player == "X" else "X"
-                        else:
-                            print("\nCell already occupied. Try again.")
+
+                        valid_move = False
+                        while not valid_move:
+                            try:
+                                cell_num = int(input(f"\n{player_name} ({current_player}), It's your turn, enter number (1-16): ").strip())
+                                if cell_num < 1 or cell_num > 16:
+                                    print("\nNumber out of range. Please enter a number between 1 and 16.")
+                                    continue
+
+                                row, col = cell_to_indices(cell_num)
+                                if board[row][col] != " ":
+                                    print("\nCell already occupied. Please choose another cell.")
+                                    continue
+
+                                valid_move = True
+                            except ValueError:
+                                print("\nInvalid input. Please enter a valid number between 1 and 16.")
+                                continue
+
+                        board[row][col] = current_player
+                        if check_win(board, current_player):
+                            os.system('clear')  # Clear the console
+                            display_board(board)
+                            print(f"\n{player_name} ({current_player}) wins!\n")
+                            break
+                        elif check_draw(board):
+                            os.system('clear')  # Clear the console
+                            display_board(board)
+                            print("\nIt's a draw!\n")
+                            break
+                        current_player = "O" if current_player == "X" else "X"
+
                     else:
                         computer_move(board)
                         if check_win(board, "O"):
