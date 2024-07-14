@@ -3,6 +3,13 @@ import random
 
 # Define the initial board state with numbers 1 to 16
 def initial_board():
+
+    """
+    Initialize the game board with numbers from 1 to 16 in a 4x4 grid.
+    A 4x4 nested list representing the game board.
+    Each cell contains a string with a number from 1 to 16.
+    """
+
     return [[str(i * 4 + j + 1) for j in range(4)] for i in range(4)]
 
 # Define the title art
@@ -24,6 +31,12 @@ Hello!
 
 # Function to display the board with numbers
 def display_board(board):
+
+    """
+    Display the current state of the game board with numbers in a 4x4 grid format.
+    
+    """
+
     print(" _____ _____ _____ _____ ")
     for row in board:
         print(f"|{row[0].center(5)}|{row[1].center(5)}|{row[2].center(5)}|{row[3].center(5)}|")
@@ -32,6 +45,12 @@ def display_board(board):
 
 # Function to display the rules of the game
 def display_rules():
+
+    """
+    Print the rules of the game.
+    
+    """
+
     print("\nTic Tac Toe Rules:\n")
     print("1. The game is played on a 4x4 grid.")
     print("2. Players take turns placing their marks in empty cells.")
@@ -44,6 +63,12 @@ def display_rules():
 
 # Function to display the welcome message
 def welcome_message():
+
+    """
+    Print the welcome message with the title and initial options for the player.
+    
+    """
+
     print(title)
     print("Please select an option to proceed:\n")
     print("1. Rules\n")
@@ -52,6 +77,12 @@ def welcome_message():
 
 # Function to check for a win
 def check_win(board, mark):
+
+    """
+     Check if a player has won the game.
+    
+    """
+
     for i in range(4):
         if all(board[i][j] == mark for j in range(4)) or all(board[j][i] == mark for j in range(4)):
             return True
@@ -61,10 +92,22 @@ def check_win(board, mark):
 
 # Function to check for a draw
 def check_draw(board):
+
+    """
+    Check if the game is a draw when all the cells are filled up.
+
+    """
+
     return all(all(cell in ["X", "O"] for cell in row) for row in board)
 
 # Function for computer's move
 def computer_move(board):
+
+    """
+    Perform the computer's move on the board.
+    
+    """
+
     empty_cells = [(i, j) for i in range(4) for j in range(4) if board[i][j] not in ["X", "O"]]
     if empty_cells:
         row, col = random.choice(empty_cells)
@@ -72,12 +115,24 @@ def computer_move(board):
 
 # Function to convert a cell number to row and column indices
 def cell_to_indices(cell_num):
+
+    """
+    Convert a cell number (1-16) to row and column indices in the game board.
+    
+    """
+
     row = (cell_num - 1) // 4
     col = (cell_num - 1) % 4
     return row, col
 
 # Function to replay the game
 def replay():
+    
+    """
+     Ask the player if they want to play again.
+
+    """
+
     while True:
         choice = input("\nDo you want to play again? (y/n): ").strip().lower()
         if choice == "y":
@@ -89,6 +144,11 @@ def replay():
 
 # Function to get a valid username
 def get_username(player_num):
+    """
+    Prompt the player to enter a valid username 
+    with 3 to 8 letters.
+    """
+
     while True:
         username = input(f"\nPlayer {player_num} enter username (3-8 letters): ").strip()
         if 3 <= len(username) <= 8 and username.isalpha():
@@ -98,6 +158,12 @@ def get_username(player_num):
 
 # Main function to control the flow of the game
 def main():
+
+    """
+    Main function to start and control the flow of the Tic Tac Toe game.
+    
+    """
+
     welcome_message()
     while True:
         choice = input("Enter your choice: ").strip()
