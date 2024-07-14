@@ -1,8 +1,9 @@
 import os
 import random
 
-# Define the initial board state
-board = [[" " for _ in range(4)] for _ in range(4)]
+# Define the initial board state with numbers 1 to 16
+def initial_board():
+    return [[str(i * 4 + j + 1) for j in range(4)] for i in range(4)]
 
 # Define the title art
 title = r"""
@@ -21,15 +22,13 @@ Hello!
 ////////////////////////////////////////////////////////////////////////////
 """
 
-
 # Function to display the board with numbers
 def display_board(board):
-    print("_____ _____ _____ _____")
+    print(" _____ _____ _____ _____ ")
     for row in board:
-        print(f"  {row[0]}  |  {row[1]}  |  {row[2]}  |  {row[3]} ")
-        print("_____|_____|_____|_____")
+        print(f"|{row[0].center(5)}|{row[1].center(5)}|{row[2].center(5)}|{row[3].center(5)}|")
+        print(" _____ _____ _____ _____ ")
     print()
-
 
 # Function to display the rules of the game
 def display_rules():
@@ -43,7 +42,6 @@ def display_rules():
     print("6. The game ends when a player wins or the board is full (draw).")
     print("7. Have fun and enjoy the game!\n")
 
-
 # Function to display the welcome message
 def welcome_message():
     print(title)
@@ -51,7 +49,6 @@ def welcome_message():
     print("1. Rules\n")
     print("2. Start Game\n")
     print("3. Exit\n")
-
 
 # Function to check for a win
 def check_win(board, mark):
@@ -62,26 +59,22 @@ def check_win(board, mark):
         return True
     return False
 
-
 # Function to check for a draw
 def check_draw(board):
-    return all(all(cell != " " for cell in row) for row in board)
-
+    return all(all(cell in ["X", "O"] for cell in row) for row in board)
 
 # Function for computer's move
 def computer_move(board):
-    empty_cells = [(i, j) for i in range(4) for j in range(4) if board[i][j] == " "]
+    empty_cells = [(i, j) for i in range(4) for j in range(4) if board[i][j] not in ["X", "O"]]
     if empty_cells:
         row, col = random.choice(empty_cells)
         board[row][col] = "O"
-
 
 # Function to convert a cell number to row and column indices
 def cell_to_indices(cell_num):
     row = (cell_num - 1) // 4
     col = (cell_num - 1) % 4
     return row, col
-
 
 # Function to replay the game
 def replay():
@@ -94,7 +87,6 @@ def replay():
         else:
             print("\nInvalid choice. Please enter 'y' or 'n'.")
 
-
 # Function to get a valid username
 def get_username(player_num):
     while True:
@@ -103,7 +95,6 @@ def get_username(player_num):
             return username
         else:
             print("Invalid username. Please enter a username with 3 to 8 letters.")
-
 
 # Main function to control the flow of the game
 def main():
@@ -115,7 +106,7 @@ def main():
             continue  # Go back to the main menu after displaying rules
         elif choice == "2":
             while True:
-                board = [[" " for _ in range(4)] for _ in range(4)] 
+                board = initial_board()  # Initialize the board with numbers
                 
                 print("\nSelect game mode:")
                 print("1. Two Players")
@@ -151,7 +142,7 @@ def main():
                                     continue
 
                                 row, col = cell_to_indices(cell_num)
-                                if board[row][col] != " ":
+                                if board[row][col] in ["X", "O"]:
                                     print("\nCell already occupied. Please choose another cell.")
                                     continue
 
@@ -194,7 +185,6 @@ def main():
             break
         else:
             print("\nInvalid choice. Please select 1, 2, or 3.\n")
-
 
 # Call the main function to start the game
 main()
