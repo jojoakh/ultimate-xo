@@ -95,6 +95,16 @@ def replay():
             print("\nInvalid choice. Please enter 'y' or 'n'.")
 
 
+# Function to get a valid username
+def get_username(player_num):
+    while True:
+        username = input(f"\nPlayer {player_num} enter username (3-8 letters): ").strip()
+        if 3 <= len(username) <= 8 and username.isalpha():
+            return username
+        else:
+            print("Invalid username. Please enter a username with 3 to 8 letters.")
+
+
 # Main function to control the flow of the game
 def main():
     welcome_message()
@@ -113,10 +123,10 @@ def main():
                 game_mode = input("\nEnter your choice: ").strip()
                 
                 if game_mode == "1":
-                    player1 = input("\nEnter Player 1  username: ").strip()
-                    player2 = input("\nEnter Player 2  username: ").strip()
+                    player1 = get_username(1)
+                    player2 = get_username(2)
                 elif game_mode == "2":
-                    player1 = input("\nEnter your username: ").strip()
+                    player1 = get_username(1)
                     player2 = "Computer"
                 else:
                     print("\nInvalid choice. Please select 1 or 2.")
