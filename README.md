@@ -33,8 +33,16 @@ Below is the flowchart of this project, it shows the entire design and concept o
 ![screenshot](documentation/screenshot-rules.png)
 
 - **Start Game**
+
+    ***Game mode***
     - When the user selects option 2, the game mode appears for the user to either select 2 players or play with the computer.
 
 ![screenshot](documentation/screenshot-game-mode.png)
+
+- When the first option is selected, which is 2 players, it prompts entering of username for player 1 and player 2 between 3 to 8 letters.
+
+![screenshot](documentation/screenshot-username.png)
+
+
 
 
