@@ -204,6 +204,13 @@ You can fork this repository by using the following steps:
 | [Lucid app](https://lucid.app/documents#/documents?folder_id=recent) | Readme | used to create flowchart |
 | [Code institute](https://learn.codeinstitute.net/) | Entire project | implemented everything i have learnt so far in this project |
 
+### Acknowledgement
+
+- I would like to say a big thank you to my mentor, [Alan Bushell](https://github.com/Alan-Bushell) for his support and feedbacks throughout the development of this project.
+- I would like to thank my lovely husband for being there all the time i needed his help and for supporting me to take this step into software development.
+
+
+
 
 
 
