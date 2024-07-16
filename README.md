@@ -201,6 +201,7 @@ You can fork this repository by using the following steps:
 | Source | Location | Notes |
 | --- | --- | --- |
 | [ASCII Art](https://www.asciiart.eu/) | Welcome message | Used to create welcome message |
+| [Lucid app](https://lucid.app/documents#/documents?folder_id=recent) | Readme | used to create flowchart |
 | [Code institute](https://learn.codeinstitute.net/) | Entire project | implemented everything i have learnt so far in this project |
 
 
