@@ -27,5 +27,14 @@ Below is the flowchart of this project, it shows the entire design and concept o
 
 ![screenshot](documentation/screenshot-welcome-message.png)
 
+- **Rules**
+    - When the user selects option 1 the rules appears.
+
+![screenshot](documentation/screenshot-rules.png)
+
+- **Start Game**
+    - When the user selects option 2, the game mode appears for the user to either select 2 players or play with the computer.
+
+![screenshot](documentation/screenshot-game-mode.png)
 
 
