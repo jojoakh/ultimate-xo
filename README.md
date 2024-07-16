@@ -77,6 +77,15 @@ Below is the flowchart of this project, it shows the entire design and concept o
 ![screenshot](documentation/screenshot-replay.png)
 ![screenshot](documentation/screenshot-endgame-message.png)
 
+## Future Features
+- Make the computer a more challenging opponent. 
+- Make the game more difficult with different levels like (Easy, Medium, Hard) with computer opponent.
+- Add different Board Sizes and allow users to choose different board sizes.
+- Add a timed mode where players have a limited amount of time to make their move.
+- Track and display the history of games played, including wins, losses, and draws.
+
+
+
 
 
 
