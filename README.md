@@ -103,7 +103,7 @@ Below is the flowchart of this project, it shows the entire design and concept o
 |The options to select from apears after the welcome message|Pass|
 |Option 1 displays the rules|Pass|
 |Option 2 displays the game mode with two options to select from|Pass|
-Option 3 ends the game and a goodbye message is displayed|Pass|
+|Option 3 ends the game and a goodbye message is displayed|Pass|
 |First option from the game mode display two players|Pass|
 |Second option from game mode is the option to play with computer|Pass|
 |Ask for username when option 1 or 2 is selected|Pass|
@@ -112,6 +112,17 @@ Option 3 ends the game and a goodbye message is displayed|Pass|
 |Occupied cells can not be slected|Pass|
 |The winner is announced when the game ends|Pass|
 |Options to replay or exit is given when the game ends|Pass|
+
+## Code Validation
+
+### Pep8 Validator
+
+I have used the recommended [Pep8 Validator](https://pep8ci.herokuapp.com/) to validate my code.
+
+| File | screenshot | Notes |
+| --- | --- | --- |
+| Run.py | ![screenshot](documentation/screenshot-pep8-validation.png) | Pass: No Errors |
+
 
 
 
