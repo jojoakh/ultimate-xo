@@ -123,6 +123,18 @@ I have used the recommended [Pep8 Validator](https://pep8ci.herokuapp.com/) to v
 | --- | --- | --- |
 | Run.py | ![screenshot](documentation/screenshot-pep8-validation.png) | Pass: No Errors |
 
+## Bugs
+
+> I got syntaxwarning invalid escape sequence '\' when i added i created the Ascii art welcome message. this warning occured because backslashes are interpreted as escape characters in python strings.
+
+> To fix this i used raw strings by prefixing the 'r' to prevent backslashe from being treated as escape characters.
+
+> During my code validation process i encounter alot of errors due to blank lines and long characters
+
+ ![screenshot](documentation/screenshot-pep8-errors.png)
+
+> To fix this, i split the lines into mutiple lines to fit in within the 79-character limit, and increase the blank lines to 2 instead of 1 when needed.
+
 
 
 
