@@ -149,13 +149,13 @@ def replay():
     """
 
     while True:
-        choice = input("\nDo you want to play again? (y/n): ").strip().lower()
-        if choice == "y":
+        choice = input("\nWant to play again? (yes/no): ").strip().lower()
+        if choice == "yes":
             return True
-        elif choice == "n":
+        elif choice == "no":
             return False
         else:
-            print("\nInvalid choice. Please enter 'y' or 'n'.")
+            print("\nInvalid choice. Please enter 'yes' or 'no'.")
 
 
 # Function to get a valid username
@@ -245,8 +245,8 @@ def main():
                         if check_win(board, current_player):
                             os.system('clear')  # Clear the console
                             display_board(board)
-                            print(f"\n{player_name}")
-                            print(f"\n({current_player}) wins!\n")
+                            print(f"\nCongratulation {player_name}!")
+                            print(f"\nYou wins!\n")
                             break
                         elif check_draw(board):
                             os.system('clear')  # Clear the console

@@ -32,6 +32,10 @@ Below is the flowchart of this project, it shows the entire design and concept o
 
 ![screenshot](documentation/screenshot-rules.png)
 
+- If the user selects a number outside 1, 2, or 3 it returns an invalid message with the opportunity to pick again.
+
+![screenshot](documentation/screenshot-invalid-choice.png)
+
 - **Start Game**
 
     ***Game mode***
@@ -39,9 +43,35 @@ Below is the flowchart of this project, it shows the entire design and concept o
 
 ![screenshot](documentation/screenshot-game-mode.png)
 
-- When the first option is selected, which is 2 players, it prompts entering of username for player 1 and player 2 between 3 to 8 letters.
+- When the first option is selected, which is 2 players, it prompts entering of username for player 1 and player 2.
+- When the second option is selected, which is play with computer, the user is asked to enter a username.
 
 ![screenshot](documentation/screenshot-username.png)
+![screenshot](documentation/screenshot-computer.png)
+
+- Username validation
+
+![screenshot](documentation/screenshot-username-validation.png)
+
+- Display the board to begin the game
+
+![screenshot](documentation/screenshot-board.png)
+
+- Input validation and error checking.
+    - User must enter numbers between 1 to 16.
+    - User must enter only numbers.
+
+![screenshot](documentation/screenshot-invalid-input.png)
+
+- User can not select already occupied cell.
+
+![screenshot](documentation/screenshot-occupied-cell.png)
+
+
+
+
+
+
 
 
 
