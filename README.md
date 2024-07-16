@@ -67,6 +67,13 @@ Below is the flowchart of this project, it shows the entire design and concept o
 
 ![screenshot](documentation/screenshot-occupied-cell.png)
 
+- When game ends the winner is displayed with the option to play again or exit the game.
+
+![screenshot](documentation/screenshot-game-end.png)
+
+
+
+
 
 
 
