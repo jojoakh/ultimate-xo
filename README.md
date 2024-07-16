@@ -8,7 +8,24 @@
 
 # Flowchart
 
+To create the process of this project i used 
+[Lucid chart](https://lucid.app/documents#/templates?folder_id=home).
+
+Below is the flowchart of this project, it shows the entire design and concept of the program.
+
 ![Lucid Flow Chart](documentation/flowchart.png)
+
+## Features
+
+### Existing Features
+
+### **User Flow**
+
+- **Welcome Message**
+    - Upon running the application the user is greeted with a welcome message, and options to select from.
+    - I used [ASCII Art](https://www.asciiart.eu/) to create the welcome message.
+
+![screenshot](documentation/screenshot-welcome-message.png)
 
 
 
