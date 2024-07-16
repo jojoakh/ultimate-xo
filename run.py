@@ -1,6 +1,7 @@
 import os
 import random
 
+
 # Define the initial board state with numbers 1 to 16
 def initial_board():
 
@@ -11,6 +12,7 @@ def initial_board():
     """
 
     return [[str(i * 4 + j + 1) for j in range(4)] for i in range(4)]
+
 
 # Define the title art
 title = r"""
@@ -29,26 +31,31 @@ Hello!
 ////////////////////////////////////////////////////////////////////////////
 """
 
+
 # Function to display the board with numbers
 def display_board(board):
 
     """
-    Display the current state of the game board with numbers in a 4x4 grid format.
-    
+    Display the current state of the game board
+    with numbers in a 4x4 grid format.
+
     """
 
-    print(" _____ _____ _____ _____ ")
     for row in board:
-        print(f"|{row[0].center(5)}|{row[1].center(5)}|{row[2].center(5)}|{row[3].center(5)}|")
+        print(f"|{row[0].center(5)}|"
+              f"{row[1].center(5)}|"
+              f"{row[2].center(5)}|"
+              f"{row[3].center(5)}|")
         print(" _____ _____ _____ _____ ")
     print()
+
 
 # Function to display the rules of the game
 def display_rules():
 
     """
     Print the rules of the game.
-    
+
     """
 
     print("\nTic Tac Toe Rules:\n")
@@ -61,12 +68,13 @@ def display_rules():
     print("6. The game ends when a player wins or the board is full (draw).")
     print("7. Have fun and enjoy the game!\n")
 
+
 # Function to display the welcome message
 def welcome_message():
 
     """
-    Print the welcome message with the title and initial options for the player.
-    
+    Print the welcome message with the title
+    and initial options for the player.
     """
 
     print(title)
@@ -75,20 +83,25 @@ def welcome_message():
     print("2. Start Game\n")
     print("3. Exit\n")
 
+
 # Function to check for a win
-def check_win(board, mark):
 
     """
      Check if a player has won the game.
-    
+
     """
 
+
+def check_win(board, mark):
     for i in range(4):
-        if all(board[i][j] == mark for j in range(4)) or all(board[j][i] == mark for j in range(4)):
+        if (all(board[i][j] == mark for j in range(4)) or
+                all(board[j][i] == mark for j in range(4))):
             return True
-    if all(board[i][i] == mark for i in range(4)) or all(board[i][3-i] == mark for i in range(4)):
+    if (all(board[i][i] == mark for i in range(4)) or
+            all(board[i][3-i] == mark for i in range(4))):
         return True
     return False
+
 
 # Function to check for a draw
 def check_draw(board):
@@ -100,34 +113,36 @@ def check_draw(board):
 
     return all(all(cell in ["X", "O"] for cell in row) for row in board)
 
+
 # Function for computer's move
 def computer_move(board):
-
     """
     Perform the computer's move on the board.
-    
     """
 
-    empty_cells = [(i, j) for i in range(4) for j in range(4) if board[i][j] not in ["X", "O"]]
+    empty_cells = [(i, j) for i in range(4) for j in range(4)
+                   if board[i][j] not in ["X", "O"]]
     if empty_cells:
         row, col = random.choice(empty_cells)
         board[row][col] = "O"
+
 
 # Function to convert a cell number to row and column indices
 def cell_to_indices(cell_num):
 
     """
     Convert a cell number (1-16) to row and column indices in the game board.
-    
+
     """
 
     row = (cell_num - 1) // 4
     col = (cell_num - 1) % 4
     return row, col
 
+
 # Function to replay the game
 def replay():
-    
+
     """
      Ask the player if they want to play again.
 
@@ -142,26 +157,28 @@ def replay():
         else:
             print("\nInvalid choice. Please enter 'y' or 'n'.")
 
+
 # Function to get a valid username
 def get_username(player_num):
     """
-    Prompt the player to enter a valid username 
+    Prompt the player to enter a valid username
     with 3 to 8 letters.
     """
-
     while True:
-        username = input(f"\nPlayer {player_num} enter username (3-8 letters): ").strip()
+        username = input(f"\nPlayer {player_num} enter username "
+                         "(3-8 letters): ").strip()
         if 3 <= len(username) <= 8 and username.isalpha():
             return username
         else:
-            print("Invalid username. Please enter a username with 3 to 8 letters.")
+            print("Invalid username. Enter a username with 3 to 8 letters.")
+
 
 # Main function to control the flow of the game
 def main():
 
     """
     Main function to start and control the flow of the Tic Tac Toe game.
-    
+
     """
 
     welcome_message()
@@ -173,12 +190,12 @@ def main():
         elif choice == "2":
             while True:
                 board = initial_board()  # Initialize the board with numbers
-                
+
                 print("\nSelect game mode:")
                 print("1. Two Players")
                 print("2. Play with Computer")
                 game_mode = input("\nEnter your choice: ").strip()
-                
+
                 if game_mode == "1":
                     player1 = get_username(1)
                     player2 = get_username(2)
@@ -193,7 +210,9 @@ def main():
                 while True:
                     os.system('clear')  # Clear the console
                     display_board(board)
-                    if (game_mode == "1") or (game_mode == "2" and current_player == "X"):
+                    if (game_mode == "1" or
+                            (game_mode == "2" and current_player == "X")):
+
                         if current_player == "X":
                             player_name = player1
                         else:
@@ -202,26 +221,32 @@ def main():
                         valid_move = False
                         while not valid_move:
                             try:
-                                cell_num = int(input(f"\n{player_name} ({current_player}), It's your turn, enter number (1-16): ").strip())
+                                cell_num = int(input(
+                                    f"\n{player_name} ({current_player}), "
+                                    "enter number (1-16): ").strip())
                                 if cell_num < 1 or cell_num > 16:
-                                    print("\nNumber out of range. Please enter a number between 1 and 16.")
+                                    print("\nNumber out of range.")
+                                    print("Enter a number between 1 and 16.")
                                     continue
 
                                 row, col = cell_to_indices(cell_num)
                                 if board[row][col] in ["X", "O"]:
-                                    print("\nCell already occupied. Please choose another cell.")
+                                    print("\nCell already occupied.")
+                                    print("Please choose another cell.")
                                     continue
 
                                 valid_move = True
                             except ValueError:
-                                print("\nInvalid input. Please enter a valid number between 1 and 16.")
+                                print("\nInvalid input.")
+                                print("Enter a valid number between 1 and 16.")
                                 continue
 
                         board[row][col] = current_player
                         if check_win(board, current_player):
                             os.system('clear')  # Clear the console
                             display_board(board)
-                            print(f"\n{player_name} ({current_player}) wins!\n")
+                            print(f"\n{player_name}")
+                            print(f"\n({current_player}) wins!\n")
                             break
                         elif check_draw(board):
                             os.system('clear')  # Clear the console
@@ -235,7 +260,7 @@ def main():
                         if check_win(board, "O"):
                             os.system('clear')  # Clear the console
                             display_board(board)
-                            print("\nComputer (O) wins!\n")
+                            print("\nComputer wins!\n")
                             break
                         elif check_draw(board):
                             os.system('clear')  # Clear the console
@@ -251,6 +276,7 @@ def main():
             break
         else:
             print("\nInvalid choice. Please select 1, 2, or 3.\n")
+
 
 # Call the main function to start the game
 main()
