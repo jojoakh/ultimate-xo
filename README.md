@@ -93,7 +93,25 @@ Below is the flowchart of this project, it shows the entire design and concept o
 - [![Markdown Builder](https://img.shields.io/badge/Markdown_Builder-grey?logo=markdown&logoColor=000000)](https://tim.2bn.dev/markdown-builder) used to generate README/TESTING templates.
 - [![Heroku](https://img.shields.io/badge/Heroku-purple?logo=heroku&logoColor=000000)](https://dashboard.heroku.com/apps) Used to deploy and host the application.
 
+## Testing
 
+#### Manual Testing
+
+| Test | Result |
+|--|--|
+|When the programme runs, the welcome message appears| Pass |
+|The options to select from apears after the welcome message|Pass|
+|Option 1 displays the rules|Pass|
+|Option 2 displays the game mode with two options to select from|Pass|
+Option 3 ends the game and a goodbye message is displayed|Pass|
+|First option from the game mode display two players|Pass|
+|Second option from game mode is the option to play with computer|Pass|
+|Ask for username when option 1 or 2 is selected|Pass|
+|Check for valid/invalid username|Pass|
+|Numbers entered must be between 1 to 16|Pass|
+|Occupied cells can not be slected|Pass|
+|The winner is announced when the game ends|Pass|
+|Options to replay or exit is given when the game ends|Pass|
 
 
 
