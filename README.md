@@ -71,7 +71,11 @@ Below is the flowchart of this project, it shows the entire design and concept o
 
 ![screenshot](documentation/screenshot-game-end.png)
 
+- Select yes to replay
+- Select no to exit
 
+![screenshot](documentation/screenshot-replay.png)
+![screenshot](documentation/screenshot-endgame-message.png)
 
 
 
