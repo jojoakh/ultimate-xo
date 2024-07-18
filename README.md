@@ -8,6 +8,7 @@
 
 ### **[Live link](https://ultimate-xo-4e6620460ba8.herokuapp.com/)**
 
+
 # Flowchart
 
 To create the process of this project i used 
@@ -16,6 +17,12 @@ To create the process of this project i used
 Below is the flowchart of this project, it shows the entire design and concept of the program.
 
 ![Lucid Flow Chart](documentation/flowchart.png)
+
+## Data Model 
+- The game board represents the game board with methods to manipulate and display it.
+- Player represents a player with attributes such as username and mark (X or O).
+- Game represents the entire game, managing players, game state, and game logic.
+
 
 ## Features
 
