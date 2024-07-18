@@ -2,6 +2,8 @@
 
 ## A Tic Tac Toe Game
 
+![Welcome image](documentation/screenshot-welcome-image.png).
+
 > This is a python tic-tac-toe game which is played between two people, a player can choose to player with another player or play with the computer. One player plays 'X' and the other player plays 'O', the players take turns in placing their marks on a grid of four by four cells. If a player gets four marks in a row horizontally, vertically, or diagonally, the player wins the game.
 
 ### **[Live link](https://ultimate-xo-4e6620460ba8.herokuapp.com/)**
@@ -129,7 +131,7 @@ I have used the recommended [Pep8 Validator](https://pep8ci.herokuapp.com/) to v
 
 > To fix this i used raw strings by prefixing the 'r' to prevent backslashe from being treated as escape characters.
 
-### During my code validation process i encounter alot of errors due to blank lines and long characters
+> During my code validation process i encounter alot of errors due to blank lines and long characters
 
  ![screenshot](documentation/screenshot-pep8-errors.png)
 
@@ -200,6 +202,7 @@ You can fork this repository by using the following steps:
 
 | Source | Location | Notes |
 | --- | --- | --- |
+| [](https://www.youtube.com/watch?v=dK6gJw4-NCo) | Welcome message | Used to create welcome message |
 | [ASCII Art](https://www.asciiart.eu/) | Welcome message | Used to create welcome message |
 | [Lucid app](https://lucid.app/documents#/documents?folder_id=recent) | Readme | used to create flowchart |
 | [Code institute](https://learn.codeinstitute.net/) | Entire project | implemented everything i have learnt so far in this project |
