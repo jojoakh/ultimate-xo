@@ -148,6 +148,9 @@ I have used the recommended [Pep8 Validator](https://pep8ci.herokuapp.com/) to v
 
   - To fix this, i split the lines into mutiple lines to fit in within the 79-character limit, and increase the blank lines to 2 instead of 1 when needed.
 
+## Remaining Bugs
+- No bugs remaining
+
 ## Deployment
 
 Code Institute has provided a [template](https://github.com/Code-Institute-Org/python-essentials-template) to display the terminal view of this backend application in a modern web browser.
