@@ -1,5 +1,5 @@
-import os
-import random
+import os  # used for clearing the console.
+import random  # used to generate random numbers for the computer's moves.
 
 
 # Define the initial board state with numbers 1 to 16
@@ -74,7 +74,7 @@ def welcome_message():
     print("3. Exit\n")
 
 
-# Function to check for a win  
+# Function to check for a win
 def check_win(board, mark):
     """
     Check if a player has won the game

@@ -95,25 +95,29 @@ Below is the flowchart of this project, it shows the entire design and concept o
 - [![Markdown Builder](https://img.shields.io/badge/Markdown_Builder-grey?logo=markdown&logoColor=000000)](https://tim.2bn.dev/markdown-builder) used to generate README/TESTING templates.
 - [![Heroku](https://img.shields.io/badge/Heroku-purple?logo=heroku&logoColor=000000)](https://dashboard.heroku.com/apps) Used to deploy and host the application.
 
+## Libraries
+- os - Miscellaneous operating system interfaces
+- Random
+
 ## Testing
 
 #### Manual Testing
 
 | Test | Result |
 |--|--|
-|When the programme runs, the welcome message appears| Pass |
-|The options to select from apears after the welcome message|Pass|
-|Option 1 displays the rules|Pass|
-|Option 2 displays the game mode with two options to select from|Pass|
-|Option 3 ends the game and a goodbye message is displayed|Pass|
-|First option from the game mode display two players|Pass|
-|Second option from game mode is the option to play with computer|Pass|
-|Ask for username when option 1 or 2 is selected|Pass|
-|Check for valid/invalid username|Pass|
-|Numbers entered must be between 1 to 16|Pass|
-|Occupied cells can not be slected|Pass|
-|The winner is announced when the game ends|Pass|
-|Options to replay or exit is given when the game ends|Pass|
+|When the programme runs, the welcome message appears| Works as expected |
+|The options to select from apears after the welcome message|Works as expected|
+|Option 1 displays the rules| Works as expected|
+|Option 2 displays the game mode with two options to select from|Works as expected|
+|Option 3 ends the game and a goodbye message is displayed|Works as expected|
+|First option from the game mode display two players|Works as expected|
+|Second option from game mode is the option to play with computer|Works as expected|
+|Ask for username when option 1 or 2 is selected|Works as expected|
+|Check for valid/invalid username|Works as expected|
+|Numbers entered must be between 1 to 16|Works as expected|
+|Occupied cells can not be slected|Works as expected|
+|The winner is announced when the game ends|Works as expected|
+|Options to replay or exit is given when the game ends|Works as expected|
 
 ## Code Validation
 
@@ -202,7 +206,7 @@ You can fork this repository by using the following steps:
 
 | Source | Location | Notes |
 | --- | --- | --- |
-| [](https://www.youtube.com/watch?v=dK6gJw4-NCo) | Welcome message | Used to create welcome message |
+| [Code Coach](https://www.youtube.com/watch?v=dK6gJw4-NCo) | For inspiration |The video helped me to understand some concepts |
 | [ASCII Art](https://www.asciiart.eu/) | Welcome message | Used to create welcome message |
 | [Lucid app](https://lucid.app/documents#/documents?folder_id=recent) | Readme | used to create flowchart |
 | [Code institute](https://learn.codeinstitute.net/) | Entire project | implemented everything i have learnt so far in this project |
